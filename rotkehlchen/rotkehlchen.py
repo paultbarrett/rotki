@@ -94,8 +94,8 @@ logger = logging.getLogger(__name__)
 log = RotkehlchenLogsAdapter(logger)
 
 MAIN_LOOP_SECS_DELAY = 10
-FREE_TRADES_LIMIT = 250
-FREE_ASSET_MOVEMENTS_LIMIT = 100
+FREE_TRADES_LIMIT = 25000
+FREE_ASSET_MOVEMENTS_LIMIT = 10000
 
 LIMITS_MAPPING = {
     'trade': FREE_TRADES_LIMIT,
@@ -675,7 +675,7 @@ class Rotkehlchen():
                     end_ts=to_ts,
                     only_cache=only_cache,
                 )
-                if self.premium is None:
+                if self.premium is not None:
                     trades = self._apply_actions_limit(
                         location=deserialize_location(name),
                         action_type='trade',
@@ -748,7 +748,7 @@ class Rotkehlchen():
             )
 
         trades: TRADES_LIST = []
-        if self.premium is None:
+        if self.premium is not None:
             trades = self._apply_actions_limit(
                 location=location,
                 action_type='trade',
@@ -906,7 +906,7 @@ class Rotkehlchen():
             )
 
         movements: List[AssetMovement] = []
-        if self.premium is None:
+        if self.premium is not None:
             movements = self._apply_actions_limit(
                 location=location,
                 action_type='asset_movement',
