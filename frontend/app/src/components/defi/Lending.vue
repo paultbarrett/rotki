@@ -82,7 +82,7 @@
             <stat-card-column lock>
               <template #title>
                 {{ $t('lending.profit_earned') }}
-                <premium-lock v-if="!premium" class="d-inline" />
+                <premium-lock v-if="premium" class="d-inline" />
               </template>
               <amount-display
                 v-if="premium"
@@ -150,7 +150,7 @@
     />
     <v-row class="loans__history mt-8" no-gutters>
       <v-col cols="12">
-        <premium-card v-if="!premium" :title="$t('lending.history')" />
+        <premium-card v-if="premium" :title="$t('lending.history')" />
         <lending-history
           v-else
           :loading="secondaryRefreshing"

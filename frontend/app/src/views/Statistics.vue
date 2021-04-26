@@ -2,7 +2,7 @@
   <v-container>
     <base-page-header :text="$t('statistics.title')" />
     <div id="statistics">
-      <div v-if="!premium">
+      <div v-if="premium">
         <p>{{ $t('statistics.no_premium') }}</p>
         <i18n path="statistics.get_premium" tag="p">
           <base-external-link text="website." :href="$interop.premiumURL" />

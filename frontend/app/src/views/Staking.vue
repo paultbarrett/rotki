@@ -2,7 +2,7 @@
   <v-container class="staking">
     <base-page-header :text="$t('staking.title')" />
     <v-container class="staking__content">
-      <no-premium-placeholder v-if="!premium" :text="$t('staking.title')" />
+      <no-premium-placeholder v-if="premium" :text="$t('staking.title')" />
       <div v-else>
         <tab-navigation :tab-contents="stakingTabs" />
       </div>

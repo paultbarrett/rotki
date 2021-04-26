@@ -1,5 +1,5 @@
 <template>
-  <no-premium-placeholder v-if="!premium" :text="$t('balancer.premium')" />
+  <no-premium-placeholder v-if="premium" :text="$t('balancer.premium')" />
   <module-not-active
     v-else-if="!isBalancerEnabled"
     :modules="[balancerModule]"

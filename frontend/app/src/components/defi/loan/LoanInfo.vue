@@ -20,7 +20,7 @@
       </v-row>
       <v-row v-if="isVault" class="mt-8" no-gutters>
         <v-col cols="12">
-          <premium-card v-if="!premium" title="Borrowing History" />
+          <premium-card v-if="premium" title="Borrowing History" />
           <vault-events-list
             v-else
             :asset="loan.collateral.asset"
@@ -32,7 +32,7 @@
       </v-row>
       <v-row v-if="isCompound" no-gutters class="mt-8">
         <v-col cols="12">
-          <premium-card v-if="!premium" title="Compound History" />
+          <premium-card v-if="premium" title="Compound History" />
           <compound-borrowing-details
             v-else
             :events="loan.events"
@@ -43,7 +43,7 @@
       </v-row>
       <v-row v-if="isAave" no-gutters class="mt-8">
         <v-col cols="12">
-          <premium-card v-if="!premium" title="Aave History" />
+          <premium-card v-if="premium" title="Aave History" />
           <aave-borrowing-details
             v-else
             :loading="aaveHistoryLoading"

@@ -4,7 +4,7 @@
     <template #message>
       {{ $t('uniswap.loading') }}
     </template>
-    <template v-if="!premium" #default>
+    <template v-if="premium" #default>
       <i18n tag="div" path="uniswap.loading_non_premium">
         <base-external-link
           :text="$t('uniswap.premium')"
