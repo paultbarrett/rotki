@@ -574,7 +574,7 @@ class Rotkehlchen():
         ) = self.events_historian.get_history(
             start_ts=start_ts,
             end_ts=end_ts,
-            has_premium=self.premium is not None,
+            has_premium=True,
         )
         result = self.accountant.process_history(
             start_ts=start_ts,

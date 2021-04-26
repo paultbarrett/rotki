@@ -859,7 +859,7 @@ class RestAPI():
             location: Optional[Location],
     ) -> Dict[str, Any]:
         actions, original_length = self.rotkehlchen.events_historian.query_ledger_actions(
-            has_premium=self.rotkehlchen.premium is not None,
+            has_premium=True,
             from_ts=from_ts,
             to_ts=to_ts,
             location=location,
@@ -1381,10 +1381,10 @@ class RestAPI():
         from_ts = Timestamp(0)
         premium = self.rotkehlchen.premium
 
-        if premium is None or not premium.is_active():
-            today = datetime.datetime.today()
-            start_of_day_today = datetime.datetime(today.year, today.month, today.day)
-            from_ts = Timestamp(int((start_of_day_today - datetime.timedelta(days=14)).timestamp()))  # noqa: E501
+        # if premium is None or not premium.is_active():
+        #     today = datetime.datetime.today()
+        #     start_of_day_today = datetime.datetime(today.year, today.month, today.day)
+        #     from_ts = Timestamp(int((start_of_day_today - datetime.timedelta(days=14)).timestamp()))  # noqa: E501
 
         data = self.rotkehlchen.data.db.get_netvalue_data(from_ts)
         result = process_result({'times': data[0], 'data': data[1]})
@@ -1420,7 +1420,7 @@ class RestAPI():
         result = process_result_list(data)
         return api_response(_wrap_in_ok_result(result), status_code=HTTPStatus.OK)
 
-    @require_premium_user(active_check=True)
+    @require_premium_user(active_check=False)
     def query_statistics_renderer(self) -> Response:
         result_dict = {'result': None, 'message': ''}
         try:
