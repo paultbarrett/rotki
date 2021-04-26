@@ -214,7 +214,7 @@ class Rotkehlchen():
         self.user_directory = self.data.unlock(user, password, create_new, initial_settings)
         self.data_importer = DataImporter(db=self.data.db)
         self.last_data_upload_ts = self.data.db.get_last_data_upload_ts()
-        self.premium_sync_manager = PremiumSyncManager(data=self.data, password=password)
+        #self.premium_sync_manager = PremiumSyncManager(data=self.data, password=password)
         # set the DB in the external services instances that need it
         self.cryptocompare.set_database(self.data.db)
 
@@ -239,6 +239,7 @@ class Rotkehlchen():
             # else let's just continue. User signed in succesfully, but he just
             # has unauthenticable/invalid premium credentials remaining in his DB
 
+        self.premium = True
         settings = self.get_settings()
         self.greenlet_manager.spawn_and_track(
             after_seconds=None,
