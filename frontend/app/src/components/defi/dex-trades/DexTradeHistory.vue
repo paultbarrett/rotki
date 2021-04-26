@@ -5,7 +5,7 @@
       :modules="[MODULE_UNISWAP, balancerModule]"
     />
     <no-premium-placeholder
-      v-else-if="!premium"
+      v-else-if="premium"
       :text="$t('dex_trade.title')"
     />
     <progress-screen v-else-if="dexLoading">
