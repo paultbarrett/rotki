@@ -4,10 +4,6 @@
       v-if="!isUniswapEnabled && !isBalancerEnabled"
       :modules="[MODULE_UNISWAP, balancerModule]"
     />
-    <no-premium-placeholder
-      v-else-if="premium"
-      :text="$t('dex_trade.title')"
-    />
     <progress-screen v-else-if="dexLoading">
       <template #message>{{ $t('dex_trades.loading') }}</template>
     </progress-screen>
@@ -20,7 +16,6 @@ import { Component, Mixins } from 'vue-property-decorator';
 import { mapActions } from 'vuex';
 import ModuleNotActive from '@/components/defi/ModuleNotActive.vue';
 import ProgressScreen from '@/components/helper/ProgressScreen.vue';
-import NoPremiumPlaceholder from '@/components/premium/NoPremiumPlaceholder.vue';
 import DefiModuleMixin from '@/mixins/defi-module-mixin';
 import PremiumMixin from '@/mixins/premium-mixin';
 import StatusMixin from '@/mixins/status-mixin';
@@ -30,7 +25,6 @@ import { Section } from '@/store/const';
 @Component({
   components: {
     ModuleNotActive,
-    NoPremiumPlaceholder,
     ProgressScreen,
     DexTradesTable
   },
