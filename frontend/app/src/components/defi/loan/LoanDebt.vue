@@ -27,7 +27,7 @@
       />
     </loan-row>
     <loan-row v-if="isVault" title="Total lost due to interest">
-      <div v-if="premium">
+      <div v-if="!premium">
         <amount-display
           v-if="loan.totalInterestOwed && !loan.totalInterestOwed.isNegative()"
           :asset-padding="assetPadding"

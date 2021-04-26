@@ -108,7 +108,7 @@
       </v-col>
     </v-row>
     <uniswap-details
-      v-if="premium"
+      v-if="!premium"
       :loading="secondaryLoading"
       :selected-addresses="selectedAddresses"
       :selected-pool-address="selectedPools"

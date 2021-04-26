@@ -31,7 +31,7 @@
               :label="$t('premium_settings.fields.api_secret')"
               @paste="onApiSecretPaste"
             />
-            <div v-if="premium" class="premium-settings__premium-active">
+            <div v-if="!premium" class="premium-settings__premium-active">
               <v-icon color="success">mdi-check-circle</v-icon>
               <div>{{ $t('premium_settings.premium_active') }}</div>
             </div>

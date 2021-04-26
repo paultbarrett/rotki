@@ -86,7 +86,7 @@
       <span v-else class="text-caption">
         {{ $t('loan_collateral.watchers.add') }}
       </span>
-      <premium-lock v-if="premium" size="x-small" />
+      <premium-lock v-if="!premium" size="x-small" />
     </v-btn>
     <watcher-dialog
       v-if="isVault"

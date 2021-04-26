@@ -13,7 +13,7 @@
     </v-row>
     <asset-value-row class="mt-8" :identifier="identifier" :symbol="symbol" />
     <asset-amount-and-value-over-time
-      v-if="premium"
+      v-if="!premium"
       class="mt-8"
       :service="$api"
       :asset="identifier"

@@ -15,7 +15,7 @@
         v-text="$t('loan_liquidation.liquidation_events')"
       />
       <v-skeleton-loader
-        v-if="premium"
+        v-if="!premium"
         :loading="typeof loan.totalLiquidated === 'undefined'"
         class="mx-auto pt-3"
         max-width="450"

@@ -18,7 +18,7 @@
       </template>
       <v-container class="balance-saved-indicator__container">
         <div class="balance-saved-indicator__content">
-          <v-row v-if="premium">
+          <v-row v-if="!premium">
             <v-col>
               <v-row no-gutters>
                 <v-col class="font-weight-medium">
@@ -47,7 +47,7 @@
               </v-row>
             </v-col>
           </v-row>
-          <v-divider v-if="premium" class="mt-2" />
+          <v-divider v-if="!premium" class="mt-2" />
           <v-row class="mt-2">
             <v-col>
               <v-row class="font-weight-medium" no-gutters>
