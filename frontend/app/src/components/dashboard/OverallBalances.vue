@@ -191,7 +191,9 @@ export default class OverallBox extends Mixins(PremiumMixin, StatusMixin) {
   }
 
   created() {
-
+    if (this.premium && !isPeriodAllowed(this.activeTimeframe)) {
+      this.activeTimeframe = TIMEFRAME_TWO_WEEKS;
+    }
   }
 }
 </script>
