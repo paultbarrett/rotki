@@ -37,9 +37,6 @@ export default class Statistics extends Vue {
   floatingPrecision!: number;
 
   mounted() {
-    if (!this.premium) {
-      return;
-    }
   }
 }
 </script>

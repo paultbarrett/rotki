@@ -1,6 +1,6 @@
 <template>
   <div class="timeframe-selector text-center">
-    <v-tooltip v-if="!premium" top>
+    <v-tooltip v-if="premium" top>
       <template #activator="{ on, attrs }">
         <v-icon
           class="timeframe-selector__premium"
@@ -18,7 +18,7 @@
       :key="i"
       :class="activeClass(timeframe)"
       class="ma-2"
-      :disabled="(!premium && !worksWithoutPremium(timeframe)) || disabled"
+      :disabled="(premium && !worksWithoutPremium(timeframe)) || disabled"
       small
       @click="input(timeframe)"
     >

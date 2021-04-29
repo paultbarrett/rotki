@@ -204,9 +204,6 @@ export default class PremiumSettings extends Vue {
   async remove() {
     this.clearErrors();
     this.confirmDeletePremium = false;
-    if (!this.premium) {
-      return;
-    }
     const { success, message } = await this.deletePremium();
     if (!success) {
       this.errorMessages.push(

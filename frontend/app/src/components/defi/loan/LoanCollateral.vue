@@ -162,9 +162,6 @@ export default class LoanCollateral extends Mixins(
   }
 
   openWatcherDialog() {
-    if (!this.premium || !this.isVault) {
-      return;
-    }
     const { collateralizationRatio, identifier, liquidationRatio } = this
       .loan as MakerDAOVaultModel;
 
